@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 2,
+  "id": "example-extension",
+  "displayName": "Example extension",
+  "version": "0.1.0",
+  "entrypoint": "scripts/xangi-extension",
+  "runtime": { "kind": "managed-http" },
+  "setup": { "instructions": "XANGI_SETUP.md" },
+  "update": { "prepare": { "command": "./scripts/prepare-update", "args": [] } },
+  "permissions": ["Store example counter data in the configured persistent directory"],
+  "capabilities": [
+    { "id": "example-extension.manage", "protocol": "http", "healthPath": "/health" }
+  ],
+  "ui": { "capability": "example-extension.manage", "path": "/ui" }
+}
