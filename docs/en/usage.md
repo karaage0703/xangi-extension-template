@@ -19,7 +19,7 @@ npm test
 npm run build
 ```
 
-Use `--features ui,device,ai` for every example or `--features none` for a headless base. `configure` validates choices before writing `extension.config.json` and `xangi-extension.json`. Do not run it on the reference original. Replace example operations with domain operations and add tests for them. Feature modules are separate under `src/features/` and loaded only when enabled; unused examples can be removed after adapting the project and checks.
+Use `--features ui,device,ai` for every example or `--features none` for a headless base. `configure` validates choices before writing `extension.config.json`, `xangi-extension.json`, and the operation skill `skills/extension-operations/SKILL.md`. See [setup](../../XANGI_SETUP.en.md#install-the-operation-skill) for workspace installation and updates. Do not run it on the reference original. Replace example operations with domain operations and add tests for them. Feature modules are separate under `src/features/` and loaded only when enabled; unused examples can be removed after adapting the project and checks.
 
 ## Runtime and persistent data
 

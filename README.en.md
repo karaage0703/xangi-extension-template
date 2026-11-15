@@ -9,6 +9,7 @@ A sample extension that stores and displays a counter, with optional device-mess
 - Read/update the counter and retain it across restarts.
 - Optional browser UI, authenticated device ingress, and host-mediated AI requests.
 - UI, device ingress, and AI can be selected independently or all omitted.
+- Generated agent operation skill follows the extension ID and enabled features.
 
 ## Quickstart
 
@@ -28,6 +29,7 @@ Follow [setup](XANGI_SETUP.en.md) to register and start it in the target xangi. 
 - [Setup and extension registration](XANGI_SETUP.en.md)
 - [Usage, configuration, and verification](docs/en/usage.md)
 - [Architecture, authentication, and data management](docs/en/design.md)
+- [Operation skill, generation, and installation guide](skills/README.en.md)
 - [Japanese setup](XANGI_SETUP.md) / [usage](docs/usage.md) / [design](docs/design.md)
 
 ## License

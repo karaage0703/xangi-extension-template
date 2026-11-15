@@ -19,7 +19,7 @@ npm test
 npm run build
 ```
 
-全部を使う場合は`--features ui,device,ai`、全部を省略する場合は`--features none`です。`configure`は選択肢を検証してから`extension.config.json`と`xangi-extension.json`を書きます。テンプレート原本では実行せず、コピー先で操作してください。サンプルの操作を用途に合うAPIとテストへ置き換えます。各機能は`src/features/`へ分けてあり、有効な機能だけを読み込みます。適応後は使わない見本を削除できます。
+全部を使う場合は`--features ui,device,ai`、全部を省略する場合は`--features none`です。`configure`は選択肢を検証してから`extension.config.json`、`xangi-extension.json`、操作用の`skills/extension-operations/SKILL.md`を書きます。スキルのworkspaceへの導入・更新は[セットアップ](../XANGI_SETUP.md#操作用スキルの導入)を参照してください。テンプレート原本では実行せず、コピー先で操作してください。サンプルの操作を用途に合うAPIとテストへ置き換えます。各機能は`src/features/`へ分けてあり、有効な機能だけを読み込みます。適応後は使わない見本を削除できます。
 
 ## 起動と永続データ
 
