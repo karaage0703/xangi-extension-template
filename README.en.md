@@ -2,7 +2,7 @@
 
 # example-extension
 
-A sample extension that stores and displays a counter, with optional device-message ingress and AI requests through xangi.
+A sample extension that stores and displays a counter, with optional device-message ingress and AI requests through [xangi](https://github.com/karaage0703/xangi).
 
 ## Features
 
