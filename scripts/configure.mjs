@@ -1,5 +1,6 @@
-import { writeFile } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { envPrefix, loadConfig, manifestFor, validateConfig } from '../src/config.mjs';
+import { skillFor } from './skill.mjs';
 
 const root = new URL('../', import.meta.url);
 const config = await loadConfig(root);
@@ -31,8 +32,11 @@ if (options.has('--features')) {
 }
 validateConfig(config);
 const manifest = manifestFor(config);
+const skill = await skillFor(config);
+await mkdir(new URL('skills/extension-operations/', root), { recursive: true });
 await writeFile(new URL('extension.config.json', root), JSON.stringify(config, null, 2) + '\n');
 await writeFile(new URL('xangi-extension.json', root), JSON.stringify(manifest, null, 2) + '\n');
+await writeFile(new URL('skills/extension-operations/SKILL.md', root), skill);
 console.log(
   `Configured ${config.id}: ${
     Object.keys(config.features)
@@ -42,3 +46,4 @@ console.log(
 );
 
 console.log('Environment prefix: ' + envPrefix(config));
+console.log('Generated operation skill: skills/extension-operations/SKILL.md');

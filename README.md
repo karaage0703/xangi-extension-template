@@ -9,6 +9,7 @@
 - カウンターの取得・更新と再起動後の保持。
 - 任意のブラウザ画面、認証付きデバイス入口、本体経由のAI依頼。
 - 画面・デバイス・AIは独立して選択でき、すべて省略する構成にも対応。
+- 拡張ID・有効機能に追従するエージェント操作用スキルを生成。
 
 ## Quickstart
 
@@ -28,6 +29,7 @@ npm run build
 - [セットアップ・拡張登録](XANGI_SETUP.md)
 - [使い方・設定・検証](docs/usage.md)
 - [構成・認証・データ管理](docs/design.md)
+- [操作用スキル・生成・導入案内](skills/README.md)
 - [English setup](XANGI_SETUP.en.md) / [usage](docs/en/usage.md) / [design](docs/en/design.md)
 
 ## License
