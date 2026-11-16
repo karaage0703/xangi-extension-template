@@ -31,7 +31,7 @@ ${request} --path /api/ai --method POST --body-json '{"message":"カウンター
 結果の\`response\`に最終応答が入る。途中の出力を成功扱いせず、失敗はそのまま報告する。timeoutしたAI依頼を自動で再送しない。`);
   }
   const values = {
-    SKILL_NAME: `use-${config.id.replace(/[.-]+/g, '-')}`,
+    SKILL_NAME: `xs-${config.id.replace(/[.-]+/g, '-').replace(/^xangi-/, '')}`,
     DESCRIPTION: JSON.stringify(`xangi拡張${config.id}の状態取得・カウンター更新${config.features.ai ? '・利用者の依頼によるAI実行' : ''}を行う。この拡張を対象とする操作依頼で使う。`),
     ID: config.id,
     CAPABILITY: capability,

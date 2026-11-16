@@ -12,9 +12,11 @@ The default enables UI only. All three choices are independent:
 - `device`: a device message endpoint with a device token separate from the managed service token.
 - `ai`: user-requested execution through the configured xangi host, defaulting to the host's agent.
 
+For new extensions, prefer `xangi-xxx` for both ID and display name. The example below uses `xangi-reading-notes`. User preferences and existing names take precedence; do not rename existing IDs solely for this recommendation. Prefer `xs-xxx` for skill names (for example, `xs-counter` for the `xangi-counter` extension). Skill names are separate from extension IDs. User preferences and existing skill names take precedence; installed skills are not automatically renamed, moved, or deleted.
+
 ```sh
 npm ci
-npm run configure -- --id reading-notes --name "Reading notes" --features ui,ai
+npm run configure -- --id xangi-reading-notes --name xangi-reading-notes --features ui,ai
 npm test
 npm run build
 ```

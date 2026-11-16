@@ -1,5 +1,5 @@
 ---
-name: use-example-extension
+name: xs-example-extension
 description: "xangi拡張example-extensionの状態取得・カウンター更新を行う。この拡張を対象とする操作依頼で使う。"
 ---
 

@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "id": "example-extension",
   "displayName": "Example extension",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "entrypoint": "scripts/xangi-extension",
   "runtime": {
     "kind": "managed-http"

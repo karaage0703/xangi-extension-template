@@ -12,9 +12,11 @@
 - `device`: managedサービス用とは別のデバイストークンで認証するメッセージ入口。
 - `ai`: 利用者の依頼で本体へ実行を依頼。担当未指定時は本体の既定担当を使います。
 
+新規作成時はID・表示名とも`xangi-xxx`形式を推奨します。以下は`xangi-reading-notes`の例です。利用者の指定・既存の名前を優先し、既存IDはこの推奨だけで変更しません。 スキル名は`xs-xxx`形式（例: 拡張`xangi-counter`の操作スキルは`xs-counter`）を推奨します。拡張IDとは別の名前です。利用者指定や既存スキル名を優先し、導入済みスキルを自動で改名・移動・削除しません。
+
 ```sh
 npm ci
-npm run configure -- --id reading-notes --name "読書メモ" --features ui,ai
+npm run configure -- --id xangi-reading-notes --name xangi-reading-notes --features ui,ai
 npm test
 npm run build
 ```
