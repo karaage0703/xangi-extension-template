@@ -15,9 +15,11 @@
 
 Node.js 22以上とnpmが必要です。テンプレートを開発先へコピーし、以下をコピー先で実行します。IDと表示名は作る拡張に合わせて変更してください。
 
+新規拡張のリポジトリ名・ID・表示名は`xangi-xxx`形式（例: `xangi-counter`）を推奨します。表示名も同じ名前にそろえます。これは必須ではなく、利用者の指定や既存製品の名前を優先し、既存IDを自動で改名しません。 スキル名は`xs-xxx`形式（例: 拡張`xangi-counter`の操作スキルは`xs-counter`）を推奨します。拡張IDとは別の名前です。利用者指定や既存スキル名を優先し、導入済みスキルを自動で改名・移動・削除しません。
+
 ```sh
 npm ci
-npm run configure -- --id example-counter --name "カウンター" --features ui
+npm run configure -- --id xangi-counter --name xangi-counter --features ui
 npm test
 npm run build
 ```

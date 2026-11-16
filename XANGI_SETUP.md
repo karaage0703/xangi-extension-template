@@ -18,7 +18,9 @@ README.md、extension.config.json、xangi-extension.jsonを読みます。調べ
 
 `npm run configure -- ...`は設定・manifestとともに`skills/extension-operations/SKILL.md`を生成します。拡張ID・capability・有効機能に追従し、再実行時は同じファイルを上書きします。用途に合わせた操作は`templates/extension-operations.SKILL.md`と`scripts/skill.mjs`へ反映し、再生成してください。
 
-利用先workspaceのスキル探索規約を確認し、生成ファイルのfrontmatterの`name`を導入先ディレクトリ名にします。例えばIDが`example-counter`なら、生成元の`skills/extension-operations/`を`<workspace>/skills/use-example-counter/`へコピーします。IDのドット・ハイフンの連続はスキル名では1つのハイフンになります。既存の同名スキルを確認し、別用途のものを上書きしないでください。別IDが同じスキル名に変換される場合は、雛形と導入先名を調整して区別します。
+スキル名は`xs-xxx`形式（例: 拡張`xangi-counter`の操作スキルは`xs-counter`）を推奨します。拡張IDとは別の名前です。利用者指定や既存スキル名を優先し、導入済みスキルを自動で改名・移動・削除しません。`configure`の再実行は生成元の雛形を更新します。既存コピーへ反映する前にfrontmatterの`name`と導入先名を確認してください。
+
+利用先workspaceのスキル探索規約を確認し、生成ファイルのfrontmatterの`name`を導入先ディレクトリ名にします。例えばIDが`xangi-counter`なら、生成元の`skills/extension-operations/`を`<workspace>/skills/xs-counter/`へコピーします。生成するスキル名は`xs-xxx`を既定とし、拡張IDの先頭の`xangi-`は重ねません。IDのドット・ハイフンの連続はスキル名では1つのハイフンになります。既存の同名スキルを確認し、別用途のものを上書きしないでください。別IDが同じスキル名に変換される場合は、雛形と導入先名を調整して区別します。
 
 導入後は利用先エージェントで再検出（必要なら新しい会話）し、`name`、ID、capability、機能をmanifestと照合します。スキル内の`"$XANGI_CLI"`は利用先から案内されたCLI絶対パスへ置換するか、その値をシェル変数へ設定します。helpを確認後、スキルの`/api/status`操作でIDと状態を確認します。登録だけではworkspaceへのスキル導入は完了しません。
 

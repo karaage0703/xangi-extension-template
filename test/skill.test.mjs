@@ -31,10 +31,16 @@ test('shipped skill matches configure output for the default config', async (t) 
 
 test('valid IDs with repeated separators produce discoverable skill names', async (t) => {
   const dir = await fixture(t);
-  for (const id of ['a..--b', 'a'.repeat(57)]) {
+  for (const [id, expected] of [
+    ['a..--b', 'xs-a-b'],
+    ['a'.repeat(57), 'xs-' + 'a'.repeat(57)],
+    ['xangi-counter', 'xs-counter'],
+    ['xangi..--notes', 'xs-notes'],
+  ]) {
     await run(process.execPath, ['scripts/configure.mjs', '--id', id], { cwd: dir });
     const skill = await readFile(join(dir, skillPath), 'utf8');
     const name = skill.split('\n')[1].slice('name: '.length);
+    assert.equal(name, expected);
     assert.match(name, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
     assert.ok(name.length <= 64);
     assert.ok(requests(skill).every((line) => line.includes(`--id ${id} --capability ${id}.manage `)));
@@ -50,7 +56,7 @@ test('configure keeps operation commands aligned with renamed IDs and all featur
     const manifest = JSON.parse(await readFile(join(dir, 'xangi-extension.json'), 'utf8'));
     const skill = await readFile(join(dir, skillPath), 'utf8');
     const [name, description] = skill.split('\n').slice(1, 3);
-    assert.equal(name, `name: use-${id.replaceAll('.', '-')}`);
+    assert.equal(name, `name: xs-${id.replaceAll('.', '-')}`);
     assert.match(JSON.parse(description.slice('description: '.length)), new RegExp(id.replaceAll('.', '\\.')));
     assert.ok(!skill.includes('{{'));
     assert.ok(!skill.includes(id === 'counter-two' ? 'reading.notes' : 'counter-two'));

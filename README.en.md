@@ -15,9 +15,11 @@ A sample extension that stores and displays a counter, with optional device-mess
 
 Requires Node.js 22+ and npm. Copy the template to your development repository and run the following in the copy. Change the ID and display name to match your extension.
 
+For new extensions, prefer the `xangi-xxx` form for the repository name, ID, and display name (for example, `xangi-counter`). Keep the display name consistent too. This is optional: user preferences and existing product names take precedence, and existing IDs are not renamed automatically. Prefer `xs-xxx` for skill names (for example, `xs-counter` for the `xangi-counter` extension). Skill names are separate from extension IDs. User preferences and existing skill names take precedence; installed skills are not automatically renamed, moved, or deleted.
+
 ```sh
 npm ci
-npm run configure -- --id example-counter --name "Counter" --features ui
+npm run configure -- --id xangi-counter --name xangi-counter --features ui
 npm test
 npm run build
 ```
